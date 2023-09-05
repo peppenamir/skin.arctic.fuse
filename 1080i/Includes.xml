@@ -5,6 +5,7 @@
     <include file="Includes_Home.xml" />
     <include file="Includes_MediaFilter.xml" />
     <include file="Includes_Transitions.xml" />
+    <include file="Includes_ObjectWall.xml" />
     <include file="Includes_Search.xml" />
     <include file="Includes_Settings.xml" />
     <include file="Includes_Hubs.xml" />
@@ -18,6 +19,7 @@
     <include file="Includes_Images.xml" />
     <include file="Includes_MPAA.xml" />
     <include file="Includes_Dialogs.xml" />
+    <include file="Includes_Keyboard.xml" />
 
     <include file="Includes_DialogInfo.xml" />
     <include file="Includes_Furniture.xml" />

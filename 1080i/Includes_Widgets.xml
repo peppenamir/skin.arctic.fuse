@@ -50,7 +50,7 @@
         </definition>
     </include>
 
-    <include name="Widget_Poster">
+    <include name="Widget_Content">
         <param name="visible">true</param>
         <param name="altvisible">false</param>
         <param name="include">List_Poster_Row</param>
@@ -90,10 +90,10 @@
                 <param name="hidden_button_enabled">true</param>
                 <nested />
                 <include content="Object_HitRect">
-                    <param name="x">0</param>
-                    <param name="y">360</param>
-                    <param name="w">1920</param>
-                    <param name="h">360</param>
+                    <param name="x">200</param>
+                    <param name="y">86</param>
+                    <param name="w">1640</param>
+                    <param name="h">view_poster_item_h</param>
                 </include>
 
                 <include content="Transitions_List_Visibility" condition="$PARAM[transition_include]">
@@ -118,7 +118,7 @@
         <control type="group">
             <nested />
             <top>86</top>
-            <height>view_smallposter_item_h</height>
+            <height>view_landscape_item_h</height>
             <control type="group">
                 <left>0</left>
                 <centertop>50%</centertop>
@@ -180,13 +180,13 @@
                 <top>40</top>
                 <control type="group">
                     <width>view_landscape_item_w</width>
-                    <height>view_smallposter_item_h</height>
+                    <height>view_landscape_item_h</height>
                     <include content="Object_ItemBack">
                         <param name="shadow_colordiffuse">shadow_soft</param>
                     </include>
                 </control>
                 <control type="group">
-                    <top>view_smallposter_item_h</top>
+                    <top>view_landscape_item_h</top>
                     <control type="group">
                         <top>20</top>
                         <height>25</height>
@@ -243,7 +243,7 @@
         <param name="icon_base_var">Image_Landscape</param>
         <param name="itemlayout_w">420</param>
         <param name="item_w">380</param>
-        <param name="item_h">view_smallposter_item_h</param>
+        <param name="item_h">view_landscape_item_h</param>
         <param name="prefix">transition_landscape</param>
         <param name="overhang_visible">false</param>
         <param name="extended">false</param>
@@ -438,7 +438,7 @@
             <param name="icon_base_var">Image_Landscape</param>
             <param name="itemlayout_w">420</param>
             <param name="item_w">380</param>
-            <param name="item_h">view_smallposter_item_h</param>
+            <param name="item_h">view_landscape_item_h</param>
             <param name="extended">false</param>
             <param name="prefix">transition_landscape</param>
             <param name="overhang_visible">$PARAM[overhang_visible]</param>
@@ -452,7 +452,7 @@
         <param name="widgettop">widget_items_t</param>
         <param name="widgetheight">widget_items_h</param>
         <definition>
-            <include content="Widget_Poster">
+            <include content="Widget_Content">
                 <param name="id">$PARAM[id]</param>
                 <param name="groupid">$PARAM[groupid]</param>
                 <param name="label">$PARAM[label]</param>
@@ -482,7 +482,7 @@
         <param name="grouplistid">5000</param>
         <param name="landscapeid">5002</param>
         <param name="squareid">5001</param>
-        <param name="squareid">5003</param>
+        <param name="posterid">5003</param>
         <param name="topid">5004</param>
         <param name="refocus">SetFocus(393)</param>
         <definition>
@@ -677,5 +677,71 @@
                 <param name="id">$PARAM[posterid]</param>
             </include>
         </include>
+    </include>
+
+
+    <include name="Widget_EndRow_Selector">
+        <param name="id">5099</param>
+        <param name="groupid">5199</param>
+        <param name="grouplistid">5000</param>
+        <param name="topsquareid">5001</param>
+        <param name="toplandscapeid">5002</param>
+        <param name="topposterid">5003</param>
+        <param name="topid">5004</param>
+        <param name="include_condition">true</param>
+        <definition>
+            <include content="Home_Selector_Widget" condition="$PARAM[include_condition]">
+                <param name="id">$PARAM[id]</param>
+                <param name="grouplistid">$PARAM[groupid]</param>
+                <param name="window_id">home</param>
+                <param name="itemlayout_w">view_button_item_w</param>
+                <param name="offset_x">view_button_offset_x</param>
+                <param name="control">wraplist</param>
+                <param name="visible">true</param>
+                <param name="shorten">true</param>
+                <param name="slide">true</param>
+                <param name="backing">true</param>
+                <param name="font">font_mini</param>
+                <param name="color_fo">main_fg_30</param>
+                <param name="color_nf">main_fg_30</param>
+                <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_ERow</param>
+                <param name="hidden_button_prefix">$PARAM[hidden_button_prefix]</param>
+                <param name="hitrect_x">-40</param>
+                <param name="hitrect_y">-140</param>
+                <param name="hitrect_w">1640</param>
+                <param name="hitrect_h">80</param>
+
+                <include content="Action_Widget_OnBack">
+                    <param name="id">$PARAM[id]</param>
+                    <param name="grouplistid">$PARAM[grouplistid]</param>
+                    <param name="landscapeid">$PARAM[toplandscapeid]</param>
+                    <param name="squareid">$PARAM[topsquareid]</param>
+                    <param name="posterid">$PARAM[topposterid]</param>
+                    <param name="topid">$PARAM[topid]</param>
+                    <param name="refocus">SetFocus(393)</param>
+                </include>
+
+                <include content="Animation_Fade_Out">
+                    <param name="condition">$EXP[Exp_InfoDialogs]</param>
+                    <param name="delay">200</param>
+                </include>
+                <include content="Animation_Fade_In">
+                    <param name="condition">!$EXP[Exp_InfoDialogs]</param>
+                </include>
+
+                <preloaditems>2</preloaditems>
+                <focusposition>1</focusposition>
+                <movement>0</movement>
+
+                <nested />
+
+                <left>view_button_left</left>
+                <width>1440</width>
+                <preloaditems>0</preloaditems>
+                <height>160</height>
+                <top>-160</top>
+
+            </include>
+        </definition>
     </include>
 </includes>

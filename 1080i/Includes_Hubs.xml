@@ -12,6 +12,10 @@
                 <param name="color_nf">main_fg_30</param>
                 <param name="hidden_button">$PARAM[hidden_button]</param>
                 <param name="slide">Skin.HasSetting(Slide.WidgetContainer)</param>
+                <param name="hitrect_x">40</param>
+                <param name="hitrect_y">20</param>
+                <param name="hitrect_w">1640</param>
+                <param name="hitrect_h">80</param>
                 <top>0</top>
                 <left>0</left>
                 <height>240</height>
@@ -48,6 +52,10 @@
         <include content="Home_Selector_Widget">
             <param name="window_id">$PARAM[window_id]</param>
             <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_Hubs</param>
+            <param name="hitrect_x">-40</param>
+            <param name="hitrect_y">740</param>
+            <param name="hitrect_w">1640</param>
+            <param name="hitrect_h">80</param>
             <focusposition>0</focusposition>
             <movement>0</movement>
             <onup>311</onup>
@@ -105,7 +113,7 @@
 
                 <onup condition="!$PARAM[widgets_only]">3000</onup>
                 <include condition="$PARAM[widgets_only]" content="Action_Widget_Top">
-                    <param name="id">311</param>
+                    <param name="id">5000</param>
                 </include>
                 <include content="Action_Widget_End" condition="!$PARAM[widgets_only]">
                     <param name="topid">5001</param>
@@ -126,7 +134,7 @@
                     <param name="label">$VAR[Label_Hub_Background]</param>
                     <param name="sort_label">$VAR[Label_Special_SortMethod]</param>
 
-                    <param name="prefix"></param>
+                    <param name="prefix" />
                     <param name="enabled">[!String.IsEmpty(Window.Property(SpecialFolderPath)) + String.IsEmpty(container(300).listitem.property(useWidgetList))]</param>
                     <param name="altvisible">!ControlGroup(5000).HasFocus()</param>
 

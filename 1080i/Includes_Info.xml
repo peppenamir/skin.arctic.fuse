@@ -51,7 +51,7 @@
 
     <include name="Info_Title">
         <param name="colordiffuse">main_fg</param>
-        <param name="container"></param>
+        <param name="container" />
         <param name="width">info_plot_w</param>
         <param name="mainlogo_visible">[!String.IsEmpty(Window(Home).Property(TMDBHelper.ListItem.CropImage)) | [!String.IsEmpty(Window(Home).Property(CropImage)) + String.IsEmpty(Window(Home).Property(TMDBHelper.Image.Override))]]</param>
         <param name="mainlogo_texture">$VAR[Image_CropLogo]</param>
@@ -882,7 +882,7 @@
 
     <include name="Info_Line">
         <param name="colordiffuse">main_fg</param>
-        <param name="container"></param>
+        <param name="container" />
         <param name="starrating">false</param>
         <definition>
             <control type="grouplist">
@@ -938,7 +938,7 @@
                 </include>
 
                 <!-- Year / Premiered -->
-                <include content="Info_Line_Items" condition="!Skin.HasSetting(InfoLine.EndTime)">
+                <include content="Info_Line_Items">
                     <include content="Info_Line_Visible_02">
                         <param name="container">$PARAM[container]</param>
                         <param name="dbtype_01">episode</param>
@@ -976,6 +976,11 @@
 
                 <!-- MPAA -->
                 <include content="Info_Line_Items">
+                    <include content="Info_Line_Visible_02" condition="Skin.HasSetting(InfoLine.EndTime)">
+                        <param name="container">$PARAM[container]</param>
+                        <param name="dbtype_01">movie</param>
+                        <param name="dbtype_02">tvshow</param>
+                    </include>
                     <param name="items_02">true</param>
                     <param name="label_01">$INFO[$PARAM[container]ListItem.MPAA]</param>
                     <param name="label_02">$INFO[Container(99950).ListItem.MPAA]</param>
@@ -1700,7 +1705,7 @@
     </include>
 
     <include name="Info_Panel">
-        <param name="container"></param>
+        <param name="container" />
         <param name="plotheight">info_plot_h</param>
         <param name="plotwidth">info_plot_w</param>
         <param name="colordiffuse">main_fg</param>

@@ -1,14 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="Label_Search_HeadingFilter">
+        <value condition="!Skin.HasSetting(Search.EnableDiscover)">$INFO[Control.GetLabel(9099).index(1)]</value>
+        <value>$INFO[Control.GetLabel(9099).index(1),, ]$INFO[Window.Property(SearchDiscover.GenreLabel),, ]$INFO[Window.Property(SearchDiscover.ProviderLabel),, ]$INFO[Window.Property(SearchDiscover.PeopleLabel),, ]$INFO[Window.Property(SearchDiscover.KeywordLabel),, ]$INFO[Window.Property(SearchDiscover.YearLow),&gt;=, ]$INFO[Window.Property(SearchDiscover.YearHigh),&lt;=, ]$INFO[Window.Property(SearchDiscover.RatingLow),&gt;=, ]$INFO[Skin.String(SearchDiscover.VoteLow),&gt;=, ]</value>
+    </variable>
+
+    <variable name="Label_Search_ContainerCount">
+        <value condition="!String.IsEqual(Container(6000).CurrentItem,-1)">$INFO[Container(6000).CurrentItem,, / ]$INFO[Container(6000).NumItems]</value>
+        <value>$INFO[Container(6000).NumItems]</value>
+    </variable>
+    <variable name="Label_Search_ItemCount">
+        <value condition="!Integer.IsEqual(Container(6000).NumItems,0) + !String.IsEmpty(Container(9008).ListItem.Label) + !Container(9008).IsUpdating">$INFO[Container(9008).ListItem.Label]</value>
+        <value>$NUMBER[0]</value>
+    </variable>
+
+    <variable name="Label_VideoInfo_CastAge">
+        <value condition="!String.IsEmpty(Container(5003).ListItem.Property(Age))">$INFO[Container(5003).ListItem.Property(Age),, $LOCALIZE[31057]]$INFO[Container(5003).ListItem.Property(Deathday),   † ,]</value>
+        <value condition="!String.IsEmpty(Container(5203).ListItem.Property(Age)) + !Container(5203).IsUpdating">$INFO[Container(5203).ListItem.Property(Age),, $LOCALIZE[31057]]$INFO[Container(5203).ListItem.Property(Deathday),   † ,]</value>
+    </variable>
+
+    <variable name="Label_VideoInfo_CastBio">
+        <value condition="!String.IsEmpty(Container(5003).ListItem.Plot)">$INFO[Container(5003).ListItem.Plot]</value>
+        <value condition="Container(5203).IsUpdating">$LOCALIZE[31023] [LOWERCASE]$LOCALIZE[14116][/LOWERCASE]...</value>
+        <value condition="!String.IsEmpty(Container(5203).ListItem.Plot)">$INFO[Container(5203).ListItem.Plot]</value>
+        <value>$LOCALIZE[19055]</value>
+    </variable>
+
+    <variable name="Label_Setting_SideMenu_HomeAffix">
+        <value condition="!String.IsEqual(Window(Home).Property(CustomDialogSettingsItems),Items_Settings_HomeMenu)"> - </value>
+    </variable>
+
     <variable name="Label_Setting_BackgroundBlur">
-        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">$LOCALIZE[31268] ($LOCALIZE[31254])</value>
-        <value>$LOCALIZE[31269] ($LOCALIZE[31267])</value>
+        <value condition="Skin.String(Background.ArtworkStyle,Fanart)">$LOCALIZE[20445] ($LOCALIZE[31254])</value>
+        <value condition="!Skin.HasSetting(TMDbHelper.EnableBlur)">$LOCALIZE[31268] $LOCALIZE[39173] ($LOCALIZE[31254])</value>
+        <value>$LOCALIZE[31269] $LOCALIZE[39173] ($LOCALIZE[31267])</value>
     </variable>
 
     <variable name="Label_Setting_ForegroundLogo">
-        <value condition="!Skin.HasSetting(TMDbHelper.EnableCrop)">Text ($LOCALIZE[31254])</value>
-        <value>Crop ($LOCALIZE[31267])</value>
+        <value condition="!Skin.HasSetting(TMDbHelper.EnableCrop)">$LOCALIZE[31329] ($LOCALIZE[31254])</value>
+        <value>$LOCALIZE[31330] ($LOCALIZE[31267])</value>
     </variable>
 
     <variable name="Label_Setting_ColourPreset">
@@ -87,7 +118,7 @@
 
     <variable name="Label_Setting_OptionalInfoLine">
         <value condition="Skin.HasSetting(InfoLine.EndTime)">$LOCALIZE[31192]</value>
-        <value>$LOCALIZE[515] / $LOCALIZE[20473]</value>
+        <value>$LOCALIZE[515] / $LOCALIZE[31285]</value>
     </variable>
 
     <variable name="Label_Setting_SeekbarPauseBehaviour">
@@ -184,78 +215,78 @@
 
     <variable name="Label_Setting_Item01_Action">
         <value condition="Skin.String(CustomShortcut.Item01,movies) + !String.IsEmpty(Skin.String(CustomShortcut.Movies))">$INFO[Skin.String(CustomShortcut.Movies)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,movies)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,movies)">$LOCALIZE[342] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item01,tvshows) + !String.IsEmpty(Skin.String(CustomShortcut.TVShows))">$INFO[Skin.String(CustomShortcut.TVShows)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,tvshows)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,tvshows)">$LOCALIZE[20343] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item01,music) + !String.IsEmpty(Skin.String(CustomShortcut.Music))">$INFO[Skin.String(CustomShortcut.Music)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,music)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,music)">$LOCALIZE[249] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item01,livetv) + !String.IsEmpty(Skin.String(CustomShortcut.PVR))">$INFO[Skin.String(CustomShortcut.PVR)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,livetv)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,livetv)">$LOCALIZE[31085] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item01,addons) + !String.IsEmpty(Skin.String(CustomShortcut.Addons))">$INFO[Skin.String(CustomShortcut.Addons)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,addons)">$LOCALIZE[16018] ($LOCALIZE[24001])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,addons)">$LOCALIZE[24001] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item01,videos) + !String.IsEmpty(Skin.String(CustomShortcut.Videos))">$INFO[Skin.String(CustomShortcut.Videos)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,videos)">$LOCALIZE[16018] ($LOCALIZE[10025])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,videos)">$LOCALIZE[10025] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item01,pictures) + !String.IsEmpty(Skin.String(CustomShortcut.Pictures))">$INFO[Skin.String(CustomShortcut.Pictures)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,pictures)">$LOCALIZE[16018] ($LOCALIZE[10002])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,pictures)">$LOCALIZE[10002] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item01,custom) + !String.IsEmpty(Skin.String(CustomShortcut.Custom01))">$INFO[Skin.String(CustomShortcut.Custom01)]</value>
-        <value condition="Skin.String(CustomShortcut.Item01,custom)">$LOCALIZE[16018] ($LOCALIZE[636])</value>
+        <value condition="Skin.String(CustomShortcut.Item01,custom)">$LOCALIZE[636] ($LOCALIZE[16018])</value>
     </variable>
 
     <variable name="Label_Setting_Item02_Action">
         <value condition="Skin.String(CustomShortcut.Item02,movies) + !String.IsEmpty(Skin.String(CustomShortcut.Movies))">$INFO[Skin.String(CustomShortcut.Movies)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,movies)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,movies)">$LOCALIZE[31026] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item02,tvshows) + !String.IsEmpty(Skin.String(CustomShortcut.TVShows))">$INFO[Skin.String(CustomShortcut.TVShows)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,tvshows)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,tvshows)">$LOCALIZE[20343] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item02,music) + !String.IsEmpty(Skin.String(CustomShortcut.Music))">$INFO[Skin.String(CustomShortcut.Music)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,music)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,music)">$LOCALIZE[249] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item02,livetv) + !String.IsEmpty(Skin.String(CustomShortcut.PVR))">$INFO[Skin.String(CustomShortcut.PVR)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,livetv)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,livetv)">$LOCALIZE[31085] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item02,addons) + !String.IsEmpty(Skin.String(CustomShortcut.Addons))">$INFO[Skin.String(CustomShortcut.Addons)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,addons)">$LOCALIZE[16018] ($LOCALIZE[24001])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,addons)">$LOCALIZE[24001] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item02,videos) + !String.IsEmpty(Skin.String(CustomShortcut.Videos))">$INFO[Skin.String(CustomShortcut.Videos)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,videos)">$LOCALIZE[16018] ($LOCALIZE[10025])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,videos)">$LOCALIZE[10025] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item02,pictures) + !String.IsEmpty(Skin.String(CustomShortcut.Pictures))">$INFO[Skin.String(CustomShortcut.Pictures)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,pictures)">$LOCALIZE[16018] ($LOCALIZE[10002])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,pictures)">$LOCALIZE[10002] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item02,custom) + !String.IsEmpty(Skin.String(CustomShortcut.Custom02))">$INFO[Skin.String(CustomShortcut.Custom02)]</value>
-        <value condition="Skin.String(CustomShortcut.Item02,custom)">$LOCALIZE[16018] ($LOCALIZE[636])</value>
+        <value condition="Skin.String(CustomShortcut.Item02,custom)">$LOCALIZE[636] ($LOCALIZE[16018])</value>
     </variable>
 
     <variable name="Label_Setting_Item03_Action">
         <value condition="Skin.String(CustomShortcut.Item03,movies) + !String.IsEmpty(Skin.String(CustomShortcut.Movies))">$INFO[Skin.String(CustomShortcut.Movies)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,movies)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,movies)">$LOCALIZE[31026] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item03,tvshows) + !String.IsEmpty(Skin.String(CustomShortcut.TVShows))">$INFO[Skin.String(CustomShortcut.TVShows)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,tvshows)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,tvshows)">$LOCALIZE[20343] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item03,music) + !String.IsEmpty(Skin.String(CustomShortcut.Music))">$INFO[Skin.String(CustomShortcut.Music)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,music)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,music)">$LOCALIZE[249] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item03,livetv) + !String.IsEmpty(Skin.String(CustomShortcut.PVR))">$INFO[Skin.String(CustomShortcut.PVR)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,livetv)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,livetv)">$LOCALIZE[31085] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item03,addons) + !String.IsEmpty(Skin.String(CustomShortcut.Addons))">$INFO[Skin.String(CustomShortcut.Addons)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,addons)">$LOCALIZE[16018] ($LOCALIZE[24001])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,addons)">$LOCALIZE[24001] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item03,videos) + !String.IsEmpty(Skin.String(CustomShortcut.Videos))">$INFO[Skin.String(CustomShortcut.Videos)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,videos)">$LOCALIZE[16018] ($LOCALIZE[10025])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,videos)">$LOCALIZE[10025] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item03,pictures) + !String.IsEmpty(Skin.String(CustomShortcut.Pictures))">$INFO[Skin.String(CustomShortcut.Pictures)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,pictures)">$LOCALIZE[16018] ($LOCALIZE[10002])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,pictures)">$LOCALIZE[10002] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item03,custom) + !String.IsEmpty(Skin.String(CustomShortcut.Custom03))">$INFO[Skin.String(CustomShortcut.Custom03)]</value>
-        <value condition="Skin.String(CustomShortcut.Item03,custom)">$LOCALIZE[16018] ($LOCALIZE[636])</value>
+        <value condition="Skin.String(CustomShortcut.Item03,custom)">$LOCALIZE[636] ($LOCALIZE[16018])</value>
     </variable>
 
     <variable name="Label_Setting_Item04_Action">
         <value condition="Skin.String(CustomShortcut.Item04,movies) + !String.IsEmpty(Skin.String(CustomShortcut.Movies))">$INFO[Skin.String(CustomShortcut.Movies)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,movies)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,movies)">$LOCALIZE[31026] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item04,tvshows) + !String.IsEmpty(Skin.String(CustomShortcut.TVShows))">$INFO[Skin.String(CustomShortcut.TVShows)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,tvshows)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,tvshows)">$LOCALIZE[20343] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item04,music) + !String.IsEmpty(Skin.String(CustomShortcut.Music))">$INFO[Skin.String(CustomShortcut.Music)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,music)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,music)">$LOCALIZE[249] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item04,livetv) + !String.IsEmpty(Skin.String(CustomShortcut.PVR))">$INFO[Skin.String(CustomShortcut.PVR)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,livetv)">$LOCALIZE[16018] ($LOCALIZE[31026])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,livetv)">$LOCALIZE[31085] $LOCALIZE[31026]</value>
         <value condition="Skin.String(CustomShortcut.Item04,addons) + !String.IsEmpty(Skin.String(CustomShortcut.Addons))">$INFO[Skin.String(CustomShortcut.Addons)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,addons)">$LOCALIZE[16018] ($LOCALIZE[24001])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,addons)">$LOCALIZE[24001] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item04,videos) + !String.IsEmpty(Skin.String(CustomShortcut.Videos))">$INFO[Skin.String(CustomShortcut.Videos)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,videos)">$LOCALIZE[16018] ($LOCALIZE[10025])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,videos)">$LOCALIZE[10025] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item04,pictures) + !String.IsEmpty(Skin.String(CustomShortcut.Pictures))">$INFO[Skin.String(CustomShortcut.Pictures)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,pictures)">$LOCALIZE[16018] ($LOCALIZE[10002])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,pictures)">$LOCALIZE[10002] ($LOCALIZE[16018])</value>
         <value condition="Skin.String(CustomShortcut.Item04,custom) + !String.IsEmpty(Skin.String(CustomShortcut.Custom04))">$INFO[Skin.String(CustomShortcut.Custom04)]</value>
-        <value condition="Skin.String(CustomShortcut.Item04,custom)">$LOCALIZE[16018] ($LOCALIZE[636])</value>
+        <value condition="Skin.String(CustomShortcut.Item04,custom)">$LOCALIZE[636] ($LOCALIZE[16018])</value>
     </variable>
 
     <variable name="Label_Title_Hub">
@@ -364,7 +395,7 @@
         <value condition="ListItem.IsCollection">$LOCALIZE[31236]</value>
         <value condition="String.IsEqual(ListItem.DBType,season) + !String.IsEmpty(ListItem.Property(totalepisodes)) + !String.IsEmpty(ListItem.Property(watchedepisodes))">$INFO[ListItem.Property(watchedepisodes),, $LOCALIZE[1443] ]$INFO[ListItem.Property(totalepisodes),, [LOWERCASE]$LOCALIZE[16102][/LOWERCASE]]</value>
         <value condition="String.IsEqual(ListItem.DBType,season) + !String.IsEmpty(ListItem.Episode)">$INFO[ListItem.Episode,, $LOCALIZE[20453]]</value>
-        <value condition="!String.IsEmpty(ListItem.Property(role))">$INFO[ListItem.Property(role),[COLOR=main_fg_30]as[/COLOR] ,]</value>
+        <value condition="!String.IsEmpty(ListItem.Property(role))">$INFO[ListItem.Property(role),[COLOR=main_fg_30]$LOCALIZE[20347][/COLOR] ,]</value>
         <value condition="!String.IsEmpty(ListItem.Label2)">$INFO[ListItem.Label2]</value>
         <value condition="!String.IsEmpty(ListItem.DBType)">[CAPITALIZE]$INFO[ListItem.DBType][/CAPITALIZE]</value>
         <value>$LOCALIZE[20334]</value>

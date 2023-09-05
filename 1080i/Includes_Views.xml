@@ -197,29 +197,13 @@
 
                 <onleft>SetFocus(50)</onleft>
                 <onleft>Action(prevletter)</onleft>
-                <!-- <onleft condition="!Container.HasPrevious">Action(PageUp)</onleft>
-                <onleft condition="!Container.HasPrevious">Action(Left)</onleft> -->
-                <!-- <onleft condition="Container.HasPrevious + $EXP[Exp_FilterWall_IsMedia]">Action(PageUp)</onleft>
-                <onleft condition="Container.HasPrevious + $EXP[Exp_FilterWall_IsMedia]">Action(PageUp)</onleft>
-                <onleft condition="!$EXP[Exp_FilterWall_IsMedia]">Action(prevletter)</onleft>
-                <onleft condition="!Container.HasPrevious + !$EXP[Exp_FilterWall_IsMedia]">Action(PageUp)</onleft>
-                <onleft condition="!Container.HasPrevious + !$EXP[Exp_FilterWall_IsMedia]">Action(Left)</onleft> -->
                 <onleft>SetFocus(65)</onleft>
 
                 <onright>SetFocus(50)</onright>
                 <onright>Action(nextletter)</onright>
-                <!-- <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)]">Action(jumpsms2)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)]">Action(prevletter)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)]">Action(prevletter)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)]">Action(prevletter)</onright> -->
-                <!-- <onright condition="Container.HasNext + $EXP[Exp_FilterWall_IsMedia]">Action(PageDown)</onright>
-                <onright condition="Container.HasNext + $EXP[Exp_FilterWall_IsMedia]">Action(PageDown)</onright>
-                <onright condition="!$EXP[Exp_FilterWall_IsMedia]">Action(nextletter)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)] + !$EXP[Exp_FilterWall_IsMedia]">Action(jumpsms2)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)] + !$EXP[Exp_FilterWall_IsMedia]">Action(prevletter)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)] + !$EXP[Exp_FilterWall_IsMedia]">Action(prevletter)</onright>
-                <onright condition="[!Container.HasNext | String.IsEqual(ListItem.SortLetter,Z)] + !$EXP[Exp_FilterWall_IsMedia]">Action(prevletter)</onright> -->
                 <onright>SetFocus(65)</onright>
+
+                <!-- <onfocus>Action(Down)</onfocus> -->
 
                 <include>Action_Scrollbar</include>
             </include>
@@ -282,10 +266,10 @@
             </control>
 
             <control type="group">
-                <animation type="Conditional" reversible="false" condition="$EXP[Exp_FilterWall_IsMedia]">
+                <animation type="Conditional" reversible="false" condition="[$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">
                     <effect type="slide" end="0,-334" start="0" time="400" delay="mf_delay_v_2" tween="cubic" easing="out" />
                 </animation>
-                <animation type="Conditional" reversible="false" condition="!$EXP[Exp_FilterWall_IsMedia]">
+                <animation type="Conditional" reversible="false" condition="![$EXP[Exp_FilterWall_IsMedia] | $EXP[Exp_FilterWall_IsDiscover]]">
                     <effect type="slide" start="0,-334" end="0" time="400" delay="mf_delay_h_2" tween="cubic" easing="out" />
                 </animation>
 

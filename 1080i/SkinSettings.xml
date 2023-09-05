@@ -86,7 +86,7 @@
                                     <label>$LOCALIZE[33029]</label>
                                 </item>
                                 <item id="8">
-                                    <label>$LOCALIZE[39024]</label>
+                                    <label>$LOCALIZE[10039]</label>
                                 </item>
                                 <item id="9">
                                     <label>$LOCALIZE[31350]</label>
@@ -105,89 +105,89 @@
                             <label>$LOCALIZE[31416]</label>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Search Menu">
+                        <include content="Settings_ButtonImage" description="Search Menu">
                             <param name="id">1001</param>
+                            <param name="groupid">1101</param>
+                            <param name="icon">special://skin/extras/icons/search.png</param>
                             <label>$LOCALIZE[31275]</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31275][/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SearchMenu,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Home Menu">
+                        <include content="Settings_ButtonImage" description="Home Menu">
                             <param name="id">1002</param>
+                            <param name="groupid">1102</param>
+                            <param name="icon">special://skin/extras/icons/home.png</param>
                             <label>$LOCALIZE[31276]</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31276][/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_HomeMenu,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Home Menu">
+                        <include content="Settings_ButtonImage" description="Home Menu">
                             <param name="id">1003</param>
+                            <param name="groupid">1103</param>
+                            <param name="icon">$VAR[Image_Setting_SideIcon_C1]</param>
                             <label>$LOCALIZE[31277] 1 ($INFO[Skin.String(CustomShortcut.Item01)])</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31277] 1[/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SideMenu_1,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Home Menu">
+                        <include content="Settings_ButtonImage" description="Home Menu">
                             <param name="id">1004</param>
+                            <param name="groupid">1104</param>
+                            <param name="icon">$VAR[Image_Setting_SideIcon_C2]</param>
                             <label>$LOCALIZE[31277] 2 ($INFO[Skin.String(CustomShortcut.Item02)])</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31277] 2[/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SideMenu_2,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Home Menu">
+                        <include content="Settings_ButtonImage" description="Home Menu">
                             <param name="id">1005</param>
+                            <param name="groupid">1105</param>
+                            <param name="icon">$VAR[Image_Setting_SideIcon_C3]</param>
                             <label>$LOCALIZE[31277] 3 ($INFO[Skin.String(CustomShortcut.Item03)])</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31277] 3[/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SideMenu_3,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Home Menu">
+                        <include content="Settings_ButtonImage" description="Home Menu">
                             <param name="id">1006</param>
+                            <param name="groupid">1106</param>
+                            <param name="icon">$VAR[Image_Setting_SideIcon_C4]</param>
                             <label>$LOCALIZE[31277] 4 ($INFO[Skin.String(CustomShortcut.Item04)])</label>
                             <onclick>SetProperty(CustomDialogSettingsTitle,[CAPITALIZE]$LOCALIZE[31277] 4[/CAPITALIZE],Home)</onclick>
                             <onclick>SetProperty(CustomDialogSettingsItems,Items_Settings_SideMenu_4,Home)</onclick>
                             <onclick>ActivateWindow(1115)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
                         </include>
-                        <include content="Settings_Button" description="Options">
+                        <include content="Settings_ButtonImage" description="Options">
                             <param name="id">1007</param>
+                            <param name="groupid">1107</param>
+                            <param name="icon">special://skin/extras/icons/bars.png</param>
                             <label>$LOCALIZE[31086]</label>
                             <visible>Container(3).HasFocus(1)</visible>
                             <onclick>RunScript(script.skinshortcuts,type=manage&amp;group=powermenu)</onclick>
                         </include>
-                        <include content="Settings_Button" description="Side labels">
+                        <include content="Settings_Button" description="Side Icons">
                             <param name="id">1008</param>
+                            <param name="control">radiobutton</param>
+                            <label>$LOCALIZE[31339]</label>
+                            <selected>Skin.HasSetting(Home.LargerSideIcons)</selected>
+                            <onclick>Skin.ToggleSetting(Home.LargerSideIcons)</onclick>
+                            <visible>Container(3).HasFocus(1)</visible>
+                        </include>
+                        <include content="Settings_Button" description="Side labels">
+                            <param name="id">1009</param>
                             <param name="control">radiobutton</param>
                             <label>$LOCALIZE[31178]</label>
                             <selected>Skin.HasSetting(Home.SideLabels)</selected>
                             <onclick>Skin.ToggleSetting(Home.SideLabels)</onclick>
                             <visible>Container(3).HasFocus(1)</visible>
-                        </include>
-
-
-                        <include content="Settings_Label" description="Expert">
-                            <param name="id">1900</param>
-                            <label>$LOCALIZE[10039]</label>
-                            <visible>Container(3).HasFocus(1)</visible>
-                        </include>
-                        <include content="Settings_Button" description="Nuke Skinshortcuts">
-                            <param name="id">1999</param>
-                            <label>$LOCALIZE[31230]</label>
-                            <visible>Container(3).HasFocus(1)</visible>
-                            <onclick>Skin.Reset(skinshortcuts-mainmenu-widgetPath)</onclick>
-                            <onclick>Skin.Reset(skinshortcuts-moviemenu-widgetPath)</onclick>
-                            <onclick>Skin.Reset(skinshortcuts-tvshowmenu-widgetPath)</onclick>
-                            <onclick>Skin.Reset(skinshortcuts-musicmenu-widgetPath)</onclick>
-                            <onclick>Skin.Reset(skinshortcuts-pvrmenu-widgetPath)</onclick>
-                            <onclick>Skin.Reset(CustomShortcut.Movies)</onclick>
-                            <onclick>Skin.Reset(CustomShortcut.TVShows)</onclick>
-                            <onclick>Skin.Reset(CustomShortcut.Music)</onclick>
-                            <onclick>Skin.Reset(CustomShortcut.PVR)</onclick>
-                            <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
                         </include>
 
                         <!-- Appearance -->
@@ -253,9 +253,17 @@
                         <include content="Settings_Button" description="Background blur">
                             <param name="id">2012</param>
                             <param name="control">button</param>
-                            <label>$LOCALIZE[31253]</label>
+                            <label>$LOCALIZE[31331]</label>
                             <label2>$VAR[Label_Setting_BackgroundBlur]</label2>
-                            <onclick>Skin.ToggleSetting(TMDbHelper.EnableBlur)</onclick>
+
+                            <onclick condition="!Skin.String(Background.ArtworkStyle,Fanart) + !Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.SetString(Background.ArtworkStyle,Fanart)</onclick>
+
+                            <onclick condition="Skin.String(Background.ArtworkStyle,Fanart)">Skin.Reset(Background.ArtworkStyle)</onclick>
+                            <onclick condition="Skin.String(Background.ArtworkStyle,Fanart)">Skin.SetBool(TMDbHelper.EnableBlur)</onclick>
+
+                            <onclick condition="Skin.HasSetting(TMDbHelper.EnableBlur)">Skin.Reset(TMDBHelper.EnableBlur)</onclick>
+
+
                             <onclick>ReloadSkin()</onclick>
                             <onclick>AlarmClock(refocusblura,SetFocus(3,1,absolute),00:00,silent)</onclick>
                             <onclick>AlarmClock(refocusblurb,SetFocus(2012),00:00,silent)</onclick>
@@ -396,6 +404,21 @@
                             <visible>Container(3).HasFocus(4)</visible>
                             <onclick>Skin.ToggleSetting(Views.WrapLists)</onclick>
                         </include>
+
+                        <include content="Settings_Label" description="Keyboard">
+                            <param name="id">4020</param>
+                            <label>$LOCALIZE[35150]</label>
+                            <visible>Container(3).HasFocus(4)</visible>
+                        </include>
+                        <include content="Settings_Button" description="Full sized keyboard layout">
+                            <param name="id">4021</param>
+                            <param name="control">radiobutton</param>
+                            <label>$LOCALIZE[31349]</label>
+                            <visible>Container(3).HasFocus(4)</visible>
+                            <onclick>Skin.ToggleSetting(Keyboard.ClassicStyle)</onclick>
+                            <selected>Skin.HasSetting(Keyboard.ClassicStyle)</selected>
+                        </include>
+
                         <include content="Settings_Label" description="Kiosk Mode">
                             <param name="id">4090</param>
                             <label>$LOCALIZE[31301]</label>
@@ -724,6 +747,19 @@
                         </include>
 
                         <!-- Dependencies -->
+                        <include content="Settings_Label" description="Expert">
+                            <param name="id">8080</param>
+                            <label>$LOCALIZE[10039]</label>
+                            <visible>Container(3).HasFocus(8)</visible>
+                        </include>
+                        <include content="Settings_Button" description="Nuke Everything">
+                            <param name="id">8081</param>
+                            <label>$LOCALIZE[31340]</label>
+                            <visible>Container(3).HasFocus(8)</visible>
+                            <onclick>SetProperty(StartupReplaceWindow,skinsettings,Home)</onclick>
+                            <onclick>Skin.ResetSettings</onclick>
+                            <onclick>RunScript(script.skinshortcuts,type=resetall)</onclick>
+                        </include>
                         <include content="Settings_Label" description="Dependencies">
                             <param name="id">8000</param>
                             <label>$LOCALIZE[39024]</label>

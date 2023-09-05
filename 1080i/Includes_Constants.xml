@@ -87,14 +87,10 @@
     <constant name="keyart_size_w">720</constant>
 
     <!-- FlixArt -->
-    <!-- <constant name="flixart_size_w">1280</constant>
-    <constant name="flixart_size_h">720</constant> -->
     <constant name="flixart_size_w">1232</constant>
     <constant name="flixart_size_h">693</constant>
-    <constant name="flixart_size_w">1200</constant>
-    <constant name="flixart_size_h">675</constant>
-    <constant name="flixart_size_w">1152</constant>
-    <constant name="flixart_size_h">648</constant>
+    <constant name="flixart_large_size_w">1600</constant>
+    <constant name="flixart_large_size_h">900</constant>
 
     <!-- Info Dialogs -->
     <constant name="infodialog_left_w">620</constant>
@@ -103,30 +99,43 @@
     <constant name="infodialog_poster_h">680</constant>
 
     <!-- View ItemLayouts -->
-    <constant name="view_poster_item_h">294</constant>
     <constant name="view_poster_itemlayout_h">334</constant>
     <constant name="-view_poster_itemlayout_h">-334</constant>
-    <constant name="view_landscape_itemlayout_w">420</constant>
-    <constant name="view_landscape_item_w">380</constant>
-
-    <constant name="view_poster_item_w">200</constant>
+    <constant name="view_poster_item_h">294</constant>
+    <constant name="-view_poster_item_h">-294</constant>
     <constant name="view_poster_itemlayout_w">240</constant>
     <constant name="-view_poster_itemlayout_w">-240</constant>
-    <constant name="view_biglandscape_item_w">520</constant>
-    <constant name="view_biglandscape_itemlayout_w">560</constant>
-    <constant name="-view_biglandscape_itemlayout_w">-560</constant>
-    <constant name="view_square_item_w">296</constant>
+    <constant name="view_poster_item_w">200</constant>
+    <constant name="-view_poster_item_w">-200</constant>
+
     <constant name="view_square_itemlayout_w">336</constant>
     <constant name="-view_square_itemlayout_w">-336</constant>
+    <constant name="view_square_item_w">296</constant>
+    <constant name="-view_square_item_w">-296</constant>
 
-    <constant name="view_smallposter_item_h">214</constant>
-    <constant name="view_smallposter_itemlayout_h">254</constant>
+    <constant name="view_card_item_w">680</constant>
+    <constant name="-view_card_item_w">-680</constant>
+    <constant name="view_card_itemlayout_w">720</constant>
+    <constant name="-view_card_itemlayout_w">-720</constant>
 
+    <constant name="view_landscape_itemlayout_w">420</constant>
+    <constant name="-view_landscape_itemlayout_w">-420</constant>
+    <constant name="view_landscape_item_w">380</constant>
+    <constant name="-view_landscape_item_w">-380</constant>
+    <constant name="view_landscape_itemlayout_h">254</constant>
+    <constant name="-view_landscape_itemlayout_h">-254</constant>
+    <constant name="view_landscape_item_h">214</constant>
+    <constant name="-view_landscape_item_h">-214</constant>
+
+    <constant name="view_banner_itemlayout_w">1680</constant>
+    <constant name="-view_banner_itemlayout_w">-1680</constant>
+    <constant name="view_banner_item_w">1640</constant>
+    <constant name="-view_banner_item_w">-1640</constant>
 
     <constant name="view_button_item_w">240</constant>
     <constant name="-view_button_item_w">-240</constant>
-    <constant name="view_button_offset_x">280</constant>
-    <constant name="-view_button_offset_x">-280</constant>
+    <constant name="view_button_offset_x">40</constant>
+    <constant name="-view_button_offset_x">-40</constant>
     <constant name="view_button_left">-80</constant>
 
     <!-- View Info -->
@@ -174,11 +183,11 @@
     <constant name="widget_items_t">6</constant>  <!-- Widget position from top -->
     <constant name="widget_items_h">574</constant>  <!-- Widget position from bottom -->
 
-    <constant name="widgetsearch_tbump_h">460</constant>  <!-- Bumper to address label top spacing -->
-    <constant name="widgetsearch_label_t">-460</constant>  <!-- Space from widget bottom to next widget label -->
+    <constant name="widgetsearch_tbump_h">580</constant>  <!-- Bumper to address label top spacing -->
+    <constant name="widgetsearch_label_t">-580</constant>  <!-- Space from widget bottom to next widget label -->
     <constant name="widgetsearch_label_h">0</constant>  <!-- Space between label and widget -->
     <constant name="widgetsearch_items_t">6</constant>  <!-- Widget position from top -->
-    <constant name="widgetsearch_items_h">894</constant>  <!-- Widget position from bottom -->
+    <constant name="widgetsearch_items_h">1014</constant>  <!-- Widget position from bottom -->
 
     <!-- <constant name="widget_sbump_h">320</constant> -->
     <constant name="widget_sbump_h">-120</constant>

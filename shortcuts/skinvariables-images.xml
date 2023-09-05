@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="Image_Setting_SideIcon" containers="1...4">
+        <value condition="Skin.String(CustomShortcut.Item0{id},movies)">special://skin/extras/icons/film.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},tvshows)">special://skin/extras/icons/tv.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},music)">special://skin/extras/icons/songs.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},livetv)">special://skin/extras/icons/livetv.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},addons)">special://skin/extras/icons/addons.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},videos)">special://skin/extras/icons/video.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},pictures)">special://skin/extras/icons/image.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},weather)">special://skin/extras/icons/sun.png</value>
+        <value condition="Skin.String(CustomShortcut.Item0{id},custom)">$INFO[Skin.String(CustomShortcut.Custom0{id}.Icon)]</value>
+    </variable>
+
     <variable name="Image_Background_Cheater" containers="301,503,513,523,553" parent="Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),{id})">
         <value condition="!String.IsEmpty({listitem}.Art(fanart))">$INFO[{listitem}.Art(fanart)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(tvshow.fanart))">$INFO[{listitem}.Art(tvshow.fanart)]</value>
@@ -39,7 +51,13 @@
         <value>flags/quality/info.png</value>
     </variable>
 
-    <variable name="Image_Banner" containers="50">
+    <variable name="Image_Clearlogo" containers="50" start="-1" end="1">
+        <value condition="!String.IsEmpty({listitem}.Art(clearlogo))">$INFO[{listitem}.Art(clearlogo)]</value>
+        <value condition="!String.IsEmpty({listitem}.Art(tvshow.clearlogo))">$INFO[{listitem}.Art(tvshow.clearlogo)]</value>
+        <value condition="!String.IsEmpty({listitem}.Art(artist.clearlogo))">$INFO[{listitem}.Art(artist.clearlogo)]</value>
+    </variable>
+
+    <variable name="Image_Banner" containers="50" start="-1" end="1">
         <value condition="!String.IsEmpty({listitem}.Art(banner))">$INFO[{listitem}.Art(banner)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(season.banner))">$INFO[{listitem}.Art(season.banner)]</value>
         <value condition="!String.IsEmpty({listitem}.Art(tvshow.banner))">$INFO[{listitem}.Art(tvshow.banner)]</value>
@@ -71,7 +89,6 @@
 
         <!-- Progress / Resume -->
         <value condition="{listitem}.IsResumable + !Skin.HasSetting(Indicator.DisableProgress)">indicator/timer.png</value>
-        <value condition="!Integer.IsEqual({listitem}.Progress,0) + !Skin.HasSetting(Indicator.DisableProgress)">indicator/unwatched.png</value>
 
         <!-- Watched -->
         <value condition="String.IsEqual({listitem}.Overlay,OverlayWatched.png) + !Skin.HasSetting(Indicator.DisableWatched)">common/null.png</value>
@@ -93,7 +110,7 @@
         <value condition="{listitem}.HasTimer">indicator/circle</value>
 
         <!-- Progress / Resume -->
-        <value condition="[{listitem}.IsResumable | !Integer.IsEqual({listitem}.Progress,0)] + !Skin.HasSetting(Indicator.DisableProgress)">indicator/circle</value>
+        <value condition="{listitem}.IsResumable + !Skin.HasSetting(Indicator.DisableProgress)">indicator/circle</value>
 
         <!-- Watched -->
         <value condition="String.IsEqual({listitem}.Overlay,OverlayWatched.png) + !Skin.HasSetting(Indicator.DisableWatched)">indicator/circle</value>

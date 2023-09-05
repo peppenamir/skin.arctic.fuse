@@ -30,38 +30,6 @@
         </definition>
     </include>
 
-    <include name="List_Timeline_Wall">
-        <param name="item_h">80</param>
-        <param name="itemlayout_h">80</param>
-        <param name="item_w">400</param>
-        <param name="itemlayout_w">420</param>
-        <param name="detailed">false</param>
-        <param name="orientation">horizontal</param>
-        <param name="control">panel</param>
-        <param name="itemlayout_include">Layout_InfoDialog_Details</param>
-        <param name="offset_x">180</param>
-        <param name="offset_y">68</param>
-        <definition>
-            <include content="List_Core">
-                <param name="id">$PARAM[id]</param>
-                <param name="detailed">$PARAM[detailed]</param>
-                <param name="orientation">$PARAM[orientation]</param>
-                <param name="control">$PARAM[control]</param>
-                <param name="item_w">$PARAM[item_w]</param>
-                <param name="item_h">$PARAM[item_h]</param>
-                <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
-                <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
-                <param name="itemlayout_include">$PARAM[itemlayout_include]</param>
-                <param name="offset_x">$PARAM[offset_x]</param>
-                <param name="offset_y">$PARAM[offset_y]</param>
-                <param name="icon">$PARAM[icon]</param>
-                <param name="misc">$PARAM[misc]</param>
-                <nested />
-                <movement>5</movement>
-            </include>
-        </definition>
-    </include>
-
     <include name="List_Reviews_Row">
         <param name="movement">0</param>
         <param name="item_h">view_poster_item_h</param>
@@ -342,9 +310,9 @@
         <param name="indicator">true</param>
         <param name="offset_x">view_side</param>
         <param name="offset_y">x08</param>
-        <param name="item_w">680</param>
+        <param name="item_w">view_card_item_w</param>
         <param name="item_h">view_poster_item_h</param>
-        <param name="itemlayout_w">720</param>
+        <param name="itemlayout_w">view_card_itemlayout_w</param>
         <param name="itemlayout_h">view_poster_itemlayout_h</param>
         <param name="itemlayout_include">Layout_Card</param>
         <param name="hidden_button_enabled">false</param>
@@ -468,9 +436,9 @@
                 <param name="orientation">horizontal</param>
                 <param name="control">fixedlist</param>
                 <param name="id">$PARAM[id]</param>
-                <param name="item_w">1640</param>
+                <param name="item_w">view_banner_item_w</param>
                 <param name="item_h">view_poster_item_h</param>
-                <param name="itemlayout_w">1680</param>
+                <param name="itemlayout_w">view_banner_itemlayout_w</param>
                 <param name="itemlayout_h">view_poster_itemlayout_h</param>
                 <param name="itemlayout_include">Layout_Banner</param>
                 <param name="offset_y">$PARAM[offset_y]</param>
@@ -484,9 +452,9 @@
                 <param name="orientation">horizontal</param>
                 <param name="control">wraplist</param>
                 <param name="id">$PARAM[id]</param>
-                <param name="item_w">1640</param>
+                <param name="item_w">view_banner_item_w</param>
                 <param name="item_h">view_poster_item_h</param>
-                <param name="itemlayout_w">1680</param>
+                <param name="itemlayout_w">view_banner_itemlayout_w</param>
                 <param name="itemlayout_h">view_poster_itemlayout_h</param>
                 <param name="itemlayout_include">Layout_Banner</param>
                 <param name="offset_y">$PARAM[offset_y]</param>
@@ -555,9 +523,9 @@
     <include name="List_Landscape_Row">
         <param name="movement">0</param>
         <param name="item_w">view_landscape_item_w</param>
-        <param name="item_h">view_smallposter_item_h</param>
+        <param name="item_h">view_landscape_item_h</param>
         <param name="itemlayout_w">view_landscape_itemlayout_w</param>
-        <param name="itemlayout_h">view_smallposter_itemlayout_h</param>
+        <param name="itemlayout_h">view_landscape_itemlayout_h</param>
         <definition>
             <include content="List_Core" condition="!Skin.String(Rows.ContentLoopback,Wrap)">
                 <param name="orientation">horizontal</param>
@@ -763,6 +731,27 @@
         </control>
     </include>
 
+    <include name="List_ButtonMenu_Row_HiddenButton_ERow_OnFocus">
+        <param name="condition">true</param>
+        <param name="prefix" />
+        <definition>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderPath)</onfocus>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderLabel)</onfocus>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderStyle)</onfocus>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderSortBy)</onfocus>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderSortOrder)</onfocus>
+            <onfocus condition="$PARAM[condition]">ClearProperty($PARAM[prefix]SpecialFolderLimit)</onfocus>
+            <onfocus condition="$PARAM[condition]">SetProperty(TMDbHelper.WidgetContainer,$INFO[$PARAM[container]ListItem.Property(list_id)])</onfocus>
+        </definition>
+    </include>
+    <include name="List_ButtonMenu_Row_HiddenButton_ERow">
+        <control type="button">
+            <visible allowhiddenfocus="true">false</visible>
+            <!-- <animation effect="fade" start="0" end="0" time="400" reversible="false">Focus</animation> -->
+            <include>List_ButtonMenu_Row_HiddenButton_ERow_OnFocus</include>
+        </control>
+    </include>
+
     <include name="List_ButtonMenu_Row_HiddenButton_Hubs_OnFocus">
         <include content="_List_ButtonMenu_Row_HiddenButton_Hubs_OnFocus"><param name="pos">01</param></include>
         <include content="_List_ButtonMenu_Row_HiddenButton_Hubs_OnFocus"><param name="pos">02</param></include>
@@ -786,6 +775,23 @@
         <include content="_List_ButtonMenu_Row_HiddenButton_Hubs_OnFocus"><param name="pos">20</param></include>
     </include>
 
+    <include name="List_Core_UseWrapList">
+        <param name="control">list</param>
+        <param name="wraplist">[False]</param>
+        <definition>
+            <include content="Object_Control" condition="$PARAM[wraplist]">
+                <param name="control">wraplist</param>
+                <param name="id">$PARAM[id]</param>
+                <nested />
+            </include>
+            <include content="Object_Control" condition="!$PARAM[wraplist]">
+                <param name="control">$PARAM[control]</param>
+                <param name="id">$PARAM[id]</param>
+                <nested />
+            </include>
+        </definition>
+    </include>
+
     <include name="List_ButtonMenu_Row">
         <param name="control">list</param>
         <param name="itemlayout_w">240</param>
@@ -796,8 +802,12 @@
         <param name="offset_x">40</param>
         <param name="hidden_button">List_ButtonMenu_Row_HiddenButton_View</param>
         <param name="backing">false</param>
+        <param name="wraplist">[False]</param>
         <definition>
-            <control type="$PARAM[control]" id="$PARAM[id]">
+            <include content="List_Core_UseWrapList">
+                <param name="id">$PARAM[id]</param>
+                <param name="control">$PARAM[control]</param>
+                <param name="wraplist">$PARAM[wraplist]</param>
                 <nested />
                 <include content="$PARAM[hidden_button]_OnFocus">
                     <param name="id">$PARAM[id]</param>
@@ -878,7 +888,7 @@
                         </control>
                     </control>
                 </focusedlayout>
-            </control>
+            </include>
         </definition>
     </include>
 
@@ -908,18 +918,18 @@
     <include name="List_Core">
         <param name="orientation">horizontal</param>
         <param name="control">list</param>
-        <param name="id"></param>
+        <param name="id" />
         <param name="preloaditems">2</param>
         <param name="tween">quadratic</param>
         <param name="scrolltime">400</param>
         <param name="viewtype">list</param>
         <param name="offset_x">view_side</param>
         <param name="offset_y">80</param>
-        <param name="itemlayout_w"></param>
-        <param name="itemlayout_h"></param>
-        <param name="item_w"></param>
-        <param name="item_h"></param>
-        <param name="itemlayout_include"></param>
+        <param name="itemlayout_w" />
+        <param name="itemlayout_h" />
+        <param name="item_w" />
+        <param name="item_h" />
+        <param name="itemlayout_include" />
         <param name="focusedlayout_special">false</param>
         <param name="altfocus">false</param>
         <param name="detailed">false</param>

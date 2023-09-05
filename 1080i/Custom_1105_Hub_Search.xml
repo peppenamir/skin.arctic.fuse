@@ -21,35 +21,31 @@
     <onunload condition="!String.IsEmpty(Control.GetLabel(9099).index(1)) + ![String.IsEqual(Skin.String(SearchHistory.01),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.02),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.03),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.04),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.05),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.06),Control.GetLabel(9099).index(1)) | String.IsEqual(Skin.String(SearchHistory.07),Control.GetLabel(9099).index(1))]">Skin.SetString(SearchHistory.01,$INFO[Control.GetLabel(9099).index(1)])</onunload>
 
     <controls>
+        <include content="Object_Hidden_List">
+            <param name="id">9008</param>
+            <content>$VAR[Path_Search_ItemCountSum]</content>
+        </include>
+
         <include>Defs_TMDbHelper_Loader</include>
 
         <include>Background_Main</include>
 
         <control type="group">
-            <visible>![ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus]]</visible>
-            <animation effect="fade" start="0" end="100" time="400" reversible="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
-            <include content="Background_Main">
-                <param name="plain_background">true</param>
-            </include>
-        </control>
-
-        <control type="group">
             <!-- Widgets and Panel -->
-            <include>Animation_View_WindowChange</include>
+            <!-- <include>Animation_View_WindowChange</include> -->
             <include>skinshortcuts-template-searchmenu</include>
         </control>
 
+        <!-- <control type="group">
+            <visible>[ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus] | $EXP[Exp_HomeMenu_HasFocus]]</visible>
+            <include content="Home_Menu">
+                <param name="onlist">6000</param>
+            </include>
+        </control> -->
+
         <include>Background_Transition</include>
 
-        <control type="group">
-            <visible>![ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus]]</visible>
-            <animation effect="fade" start="0" end="100" time="400" reversible="false">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="400" reversible="false">Hidden</animation>
-            <include content="Home_Menu">
-                <param name="onlist">30000</param>
-            </include>
-        </control>
+
 
         <control type="group">
             <left>view_pad</left>
@@ -67,21 +63,21 @@
             </control>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <bordersize>-4</bordersize>
+                <include>Layout_Home_Menu_Icon_Bordersize</include>
                 <texture colordiffuse="main_fg_90">special://skin/extras/icons/search.png</texture>
             </control>
         </control>
 
         <control type="group">
+            <!-- <visible>![ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus] | $EXP[Exp_HomeMenu_HasFocus]]</visible> -->
             <left>view_pad</left>
             <bottom>view_pad</bottom>
             <width>40</width>
             <height>40</height>
-            <visible>[ControlGroup(6000).HasFocus() | $EXP[Exp_Group_Bumper_HasFocus]]</visible>
             <visible>!$EXP[Exp_InfoDialogs]</visible>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <bordersize>-4</bordersize>
+                <include>Layout_Home_Menu_Icon_Bordersize</include>
                 <texture colordiffuse="main_fg_30">special://skin/extras/icons/bars.png</texture>
             </control>
         </control>
